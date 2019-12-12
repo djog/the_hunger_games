@@ -1,0 +1,33 @@
+﻿Team: SNEK
+Datum: 12-12-2019
+
+- Anaconda => Python distro met Science dingen
+- Focus op neural networks, later data
+- Games laten spelen
+- Uitzoeken hoe het werkt
+- Agent in a grid world; overleven
+- Neural network for minecraft
+- 1 agent
+- Voedsel zoeken?
+
+
+* Tensorflow api voor Python
+* PyCharm → Rafayel
+
+= Logistiek → Computers kunnen niet machine learning aan in kleine tijd
+= Mogelijke oplossing → Azure
+
+- Visualisatie → PyGame; OpenGL; DirectX
+
+- world
+doughnut gridworld
+
+- Input 7x7
+- Output richting beweging → 5 nodes
+
+- Props
+* saturation: begint op vast waarde (bijv. 30), -1 per turn, sterfte bij 0
+voedsel geeft bijv. 10 saturation
+
+- Algorithm
+Deep learning and reinforcement learning
