@@ -5,4 +5,7 @@ ML Program that learns how to survive
 * Mart Prenger
 * Hans Bouwman
 * Jan Derk Kotlarski
-* Rafayel Gardishyan
+* Rafayel Gardishyan -> https://rgardishyan.com
+
+# Handy links
+- https://www.machinelearningplus.com/python/101-numpy-exercises-python/
