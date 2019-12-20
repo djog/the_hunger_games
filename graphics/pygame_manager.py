@@ -1,24 +1,35 @@
 import pygame
 
-pygame.init()
+from logics.world import World
 
-screen = pygame.display.set_mode([600, 600])
-grid_size = 15
-cell_size = 35
-offset = (pygame.display.Info().current_w - grid_size * cell_size) / 2
 
-running = True
-while running:
+class Graphics(object):
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    def __init__(self, window_size):
+        self.w = World()
+        pygame.init()
+        self.screen = pygame.display.set_mode(window_size)
+        self.Running = True
 
-    screen.fill((255, 255, 255))
+    def parse_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.Running = False
 
-    for x in range(grid_size * grid_size):
-        pygame.draw.rect(screen, [0, 0, 0], [(x % grid_size) * cell_size + offset, int(x / grid_size) * cell_size + offset, cell_size, cell_size], 1)
+    def draw(self):
+        self.screen.fill((255, 255, 255))
 
-    pygame.display.flip()
+        cell_size = 0  # Calculate cell size based on the world size and window size
 
-pygame.quit()
+        # draw
+
+        pygame.display.flip()
+
+    @staticmethod
+    def close(self):
+        pygame.quit()
+
+    # for x in range(grid_size * grid_size):
+    #     pygame.draw.rect(screen, [0, 0, 0], [(x % grid_size) * cell_size + offset, int(x / grid_size) * cell_size + offset, cell_size, cell_size], 1)
+
+
