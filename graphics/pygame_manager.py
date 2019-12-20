@@ -22,7 +22,6 @@ class Graphics(object):
 
         # Calculate cell size based on the world size and window size
         cell_size = int(((pygame.display.Info().current_w - 30) / self.gridsize) + 0.5)
-        print(cell_size)
         offset = (pygame.display.Info().current_w - (self.gridsize * cell_size)) / 2
 
         # draw
