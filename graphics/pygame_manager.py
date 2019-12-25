@@ -7,7 +7,7 @@ from logics.world import World
 class Graphics(object):
 
     def __init__(self, window_size, world_size: tuple):
-        self.w = World(world_size)
+        self.world = World(world_size)
         pygame.init()
         self.screen = pygame.display.set_mode(window_size)
         self.Running = True
@@ -18,7 +18,7 @@ class Graphics(object):
             if event.type == pygame.QUIT:
                 self.Running = False
 
-    def draw(self, a: Agent):
+    def draw(self):
         self.screen.fill((255, 255, 255))
 
         # Calculate cell size based on the world size and window size
@@ -37,7 +37,8 @@ class Graphics(object):
         offset_width += agent_size
         offset_height += agent_size
 
-        pygame.draw.circle(self.screen, [0, 0, 0], [int((a.location.x * cell_size) + offset_width), int((a.location.y * cell_size) + offset_height)], agent_size)
+        for a in self.world.agents:
+            pygame.draw.circle(self.screen, [0, 0, 0], [int((a.location.x * cell_size) + offset_width), int((a.location.y * cell_size) + offset_height)], agent_size)
 
         pygame.display.flip()
 
