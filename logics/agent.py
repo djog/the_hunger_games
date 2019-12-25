@@ -1,5 +1,7 @@
 from pygame.math import Vector2
 
+from logics.world import World
+
 
 class Action:
 
@@ -22,15 +24,19 @@ class Agent(object):
         }
 
     def move(self, offset: tuple):
-        self.location.x, self.location.y = offset
+        self.location.x += offset[0]
+        self.location.y += offset[1]
 
     def action(self, atype: str, arguments: tuple):
         self.action_queue.append(
             Action(atype, arguments)
         )
 
-    def update(self):
-        for action in self.action_queue:
+    def update(self, parent: World):
+        # Use to get other variables from the world
+        print(parent)
+        for i in range(len(self.action_queue)):
+            action = self.action_queue.pop()
             try:
                 self.actions[action.type](action.args)
             except KeyError:

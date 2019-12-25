@@ -1,8 +1,5 @@
 from pygame.math import Vector2
 
-from logics.agent import Agent
-
-
 class World:
 
     def __init__(self, size: tuple):
@@ -11,10 +8,13 @@ class World:
 
         self.agents = []
 
-    def add_agent(self, a: Agent):
+    def add_agent(self, a):
         self.agents.append(a)
 
     def update(self):
         # update agents
         for a in self.agents:
-            a.update()
+            a.update(self)
+
+    def __str__(self):
+        return "World - {}".format(self.size)
